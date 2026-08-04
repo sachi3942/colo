@@ -28,11 +28,10 @@ android {
 }
 
 dependencies {
+    // AppCompat (බොහෝ විට ඔබේ කෝඩ් එකේ අනිවාර්යයෙන්ම තියෙන එකක්)
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.10.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
-    implementation 'androidx.navigation:navigation-fragment:2.7.4'
-    implementation 'androidx.navigation:navigation-ui:2.7.4'
+    
+    // DeepSeek Java code එකට අදාල JSON හෝ HTTP Libraries (ඔබේ කෝඩ් එකේ භාවිතා කරලා තියෙනවා නම්)
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
 }
