@@ -4,7 +4,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.4.0'
+        // අපි Android Plugin එක 7.4.0 වලට අඩු කළා (Gradle 7.6.1 එකත් එක්ක වැඩ කරන්න)
+        classpath 'com.android.tools.build:gradle:7.4.0'
     }
 }
 
