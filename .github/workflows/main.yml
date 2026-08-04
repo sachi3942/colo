@@ -23,11 +23,21 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
 
-    # අපි මෙතන gradlew කොටස අයින් කරලා, කෙලින්ම build කරන command එක දැම්මා
+    # AndroidX ගැටලුව විසඳගන්න gradle.properties එක ඔටෝමැටික්ව හදනවා
+    - name: Create gradle.properties
+      run: |
+        echo "android.useAndroidX=true" >> gradle.properties
+        echo "org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8" >> gradle.properties
+
+    # Gradle 9.6.1 එක අයින් කරලා, හරියට වැඩ කරන Gradle 7.6.1 එක පාවිච්චි කිරීම
     - name: Build APK
       run: |
-        echo "Building APK directly..."
-        # Android SDK එකේ එන gradle command එක භාවිතා කිරීම
+        echo "Building APK with Gradle 7.6.1..."
+        wget https://services.gradle.org/distributions/gradle-7.6.1-bin.zip
+        unzip -o gradle-7.6.1-bin.zip
+        export PATH=$PWD/gradle-7.6.1/bin:$PATH
+        
+        # Build කිරීම
         gradle build
 
     - name: Upload APK
